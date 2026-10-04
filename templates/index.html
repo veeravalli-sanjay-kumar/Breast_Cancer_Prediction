@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BreastCare AI | Recurrence Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">✚</span>
+        <span>BreastCare AI</span>
+    </div>
+
+    <div class="nav-tag">
+        AI / ML Academic Project
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main-container">
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                🌿 Machine Learning Healthcare Project
+            </span>
+
+            <h1>
+                Breast Cancer
+                <span>Recurrence Prediction</span>
+            </h1>
+
+            <p>
+                A Decision Tree based machine-learning demonstration
+                that classifies clinical dataset features into
+                recurrence-related categories.
+            </p>
+
+        </div>
+
+        <div class="hero-icon">
+            🩺
+        </div>
+
+    </section>
+
+
+    <!-- IMPORTANT DISCLAIMER -->
+
+    <section class="alert-box">
+
+        <div class="alert-icon">
+            ⚠️
+        </div>
+
+        <div>
+
+            <h3>Important Medical Disclaimer</h3>
+
+            <p>
+                This website is an academic machine-learning
+                demonstration. It is <strong>not a medical
+                diagnostic tool</strong> and must not be used
+                to diagnose cancer, predict an individual
+                patient's outcome, or make treatment decisions.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORM CARD -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>Patient Feature Information</h2>
+
+                <p>
+                    Enter the values required by the trained
+                    Decision Tree model.
+                </p>
+
+            </div>
+
+            <span class="step">
+                STEP 1
+            </span>
+
+        </div>
+
+
+        <form action="/predict"
+              method="POST">
+
+            <div class="form-grid">
+
+
+                <!-- AGE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Age Group
+                    </label>
+
+                    <select name="age" required>
+
+                        <option value="">
+                            Select age group
+                        </option>
+
+                        <option value="20-29">
+                            20-29
+                        </option>
+
+                        <option value="30-39">
+                            30-39
+                        </option>
+
+                        <option value="40-49">
+                            40-49
+                        </option>
+
+                        <option value="50-59">
+                            50-59
+                        </option>
+
+                        <option value="60-69">
+                            60-69
+                        </option>
+
+                        <option value="70-79">
+                            70-79
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MENOPAUSE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Menopause
+                    </label>
+
+                    <select name="menopause" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="premeno">
+                            Premenopause
+                        </option>
+
+                        <option value="ge40">
+                            Age 40+
+                        </option>
+
+                        <option value="lt40">
+                            Below 40
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TUMOR SIZE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Tumor Size
+                    </label>
+
+                    <select name="tumor-size" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="0-4">0-4</option>
+                        <option value="5-9">5-9</option>
+                        <option value="10-14">10-14</option>
+                        <option value="15-19">15-19</option>
+                        <option value="20-24">20-24</option>
+                        <option value="25-29">25-29</option>
+                        <option value="30-34">30-34</option>
+                        <option value="35-39">35-39</option>
+                        <option value="40-44">40-44</option>
+                        <option value="45-49">45-49</option>
+                        <option value="50-54">50-54</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- INV NODES -->
+
+                <div class="input-group">
+
+                    <label>
+                        Inv Nodes
+                    </label>
+
+                    <select name="inv-nodes" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="0-2">0-2</option>
+                        <option value="3-5">3-5</option>
+                        <option value="6-8">6-8</option>
+                        <option value="9-11">9-11</option>
+                        <option value="12-14">12-14</option>
+                        <option value="15-17">15-17</option>
+                        <option value="24-26">24-26</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- NODE CAPS -->
+
+                <div class="input-group">
+
+                    <label>
+                        Node Caps
+                    </label>
+
+                    <select name="node-caps" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="yes">
+                            Yes
+                        </option>
+
+                        <option value="no">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MALIGNANCY -->
+
+                <div class="input-group">
+
+                    <label>
+                        Degree of Malignancy
+                    </label>
+
+                    <select name="deg-malig" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BREAST -->
+
+                <div class="input-group">
+
+                    <label>
+                        Breast
+                    </label>
+
+                    <select name="breast" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="left">
+                            Left
+                        </option>
+
+                        <option value="right">
+                            Right
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- QUADRANT -->
+
+                <div class="input-group">
+
+                    <label>
+                        Breast Quadrant
+                    </label>
+
+                    <select name="breast-quad" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="left-up">
+                            Left Upper
+                        </option>
+
+                        <option value="left-low">
+                            Left Lower
+                        </option>
+
+                        <option value="right-up">
+                            Right Upper
+                        </option>
+
+                        <option value="right-low">
+                            Right Lower
+                        </option>
+
+                        <option value="central">
+                            Central
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- IRRADIATION -->
+
+                <div class="input-group">
+
+                    <label>
+                        Irradiation
+                    </label>
+
+                    <select name="irradiat" required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="yes">
+                            Yes
+                        </option>
+
+                        <option value="no">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button type="submit"
+                    class="predict-button">
+
+                <span>Run Decision Tree Prediction</span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- SAFETY SECTION -->
+
+    <section class="safety-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                🛡️
+            </span>
+
+            <div>
+
+                <h2>Safety & Precaution</h2>
+
+                <p>
+                    Please read before using this demonstration.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="safety-grid">
+
+
+            <div class="safety-card">
+
+                <span class="safety-number">
+                    01
+                </span>
+
+                <h3>
+                    Not a Diagnosis
+                </h3>
+
+                <p>
+                    The prediction is generated by a machine-learning
+                    model trained on a limited dataset. It does not
+                    establish whether an individual has cancer or
+                    whether cancer will recur.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <span class="safety-number">
+                    02
+                </span>
+
+                <h3>
+                    Consult a Professional
+                </h3>
+
+                <p>
+                    Medical decisions should be based on qualified
+                    healthcare professionals, clinical examination,
+                    laboratory results, imaging and other appropriate
+                    medical evidence.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <span class="safety-number">
+                    03
+                </span>
+
+                <h3>
+                    Protect Personal Data
+                </h3>
+
+                <p>
+                    Do not enter names, phone numbers, addresses,
+                    medical record numbers or other personally
+                    identifiable information into this academic demo.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <span class="safety-number">
+                    04
+                </span>
+
+                <h3>
+                    Do Not Delay Care
+                </h3>
+
+                <p>
+                    Never use a model prediction to delay, replace
+                    or discontinue medical care. If you have concerning
+                    symptoms, contact an appropriate healthcare
+                    professional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MODEL INFORMATION -->
+
+    <section class="info-card">
+
+        <div class="info-icon">
+            🤖
+        </div>
+
+        <div>
+
+            <h3>
+                About This Model
+            </h3>
+
+            <p>
+                This project uses a
+                <strong>Decision Tree Classifier</strong>
+                with categorical feature preprocessing.
+                The model was developed for educational purposes
+                to demonstrate the machine-learning workflow.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        BreastCare AI · Academic Machine Learning Project
+    </p>
+
+    <p>
+        For educational purposes only · Not for medical diagnosis
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

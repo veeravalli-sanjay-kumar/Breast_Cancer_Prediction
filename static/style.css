@@ -1,0 +1,981 @@
+/* =========================================================
+   BREASTCARE AI
+   Modern Healthcare + Machine Learning Interface
+   ========================================================= */
+
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7ff,
+            #f8fbff
+        );
+
+    color: #172033;
+
+    min-height: 100vh;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    height: 72px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-bottom: 1px solid #e5eaf1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    color: #1261a0;
+}
+
+
+.logo-icon {
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 10px;
+
+    background: #1261a0;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+
+.nav-tag {
+    font-size: 13px;
+
+    color: #6c7890;
+
+    background: #f1f6fb;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+}
+
+
+/* =========================
+   MAIN
+   ========================= */
+
+.main-container {
+    width: 92%;
+
+    max-width: 1120px;
+
+    margin: auto;
+
+    padding: 45px 0 70px;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f5f92,
+            #1585a8
+        );
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.hero-content {
+    max-width: 760px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.badge {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 18px;
+}
+
+
+.hero h1,
+.result-hero h1 {
+    font-size: clamp(34px, 5vw, 55px);
+
+    line-height: 1.12;
+
+    margin-bottom: 18px;
+}
+
+
+.hero h1 span,
+.result-hero h1 span {
+    display: block;
+
+    color: #bdf3ff;
+}
+
+
+.hero p {
+    font-size: 17px;
+
+    max-width: 700px;
+
+    color: #e6f7ff;
+}
+
+
+.hero-icon {
+    font-size: 100px;
+
+    opacity: 0.18;
+
+    margin-right: 30px;
+}
+
+
+/* =========================
+   ALERT
+   ========================= */
+
+.alert-box {
+    display: flex;
+
+    gap: 18px;
+
+    align-items: flex-start;
+
+    padding: 22px 25px;
+
+    background: #fff9e8;
+
+    border: 1px solid #f3df9c;
+
+    border-left: 5px solid #e7a900;
+
+    border-radius: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+.alert-icon {
+    font-size: 27px;
+
+    flex-shrink: 0;
+}
+
+
+.alert-box h3 {
+    color: #805c00;
+
+    margin-bottom: 5px;
+}
+
+
+.alert-box p {
+    color: #665a3c;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MAIN CARD
+   ========================= */
+
+.card {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 45px rgba(30, 55, 80, 0.08);
+
+    border: 1px solid #e8edf3;
+
+    margin-bottom: 35px;
+}
+
+
+.card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+
+.card-header h2 {
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+
+.card-header p {
+    color: #758096;
+
+    font-size: 14px;
+}
+
+
+.step {
+    background: #eaf5fb;
+
+    color: #1261a0;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.input-group label {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+    color: #26344a;
+}
+
+
+.input-group select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #d9e0e8;
+
+    border-radius: 11px;
+
+    background: #fbfcfe;
+
+    color: #283548;
+
+    font-size: 15px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.input-group select:hover {
+    border-color: #8db9d4;
+}
+
+
+.input-group select:focus {
+    border-color: #1676a9;
+
+    box-shadow:
+        0 0 0 3px rgba(
+            22,
+            118,
+            169,
+            0.12
+        );
+
+    background: white;
+}
+
+
+/* =========================
+   PREDICT BUTTON
+   ========================= */
+
+.predict-button {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 17px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1261a0,
+            #1687a9
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 8px 20px rgba(
+            18,
+            97,
+            160,
+            0.25
+        );
+}
+
+
+.predict-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(
+            18,
+            97,
+            160,
+            0.30
+        );
+}
+
+
+.arrow {
+    font-size: 22px;
+}
+
+
+/* =========================
+   SAFETY SECTION
+   ========================= */
+
+.safety-section {
+    margin-top: 40px;
+
+    margin-bottom: 35px;
+}
+
+
+.section-title {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.section-icon {
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e9f7ef;
+
+    border-radius: 13px;
+
+    font-size: 24px;
+}
+
+
+.section-title h2 {
+    font-size: 25px;
+}
+
+
+.section-title p {
+    color: #778398;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   SAFETY CARDS
+   ========================= */
+
+.safety-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+.safety-card {
+    background: white;
+
+    border: 1px solid #e6ebf1;
+
+    border-radius: 17px;
+
+    padding: 25px;
+
+    position: relative;
+
+    transition: 0.2s;
+}
+
+
+.safety-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(
+            30,
+            55,
+            80,
+            0.08
+        );
+}
+
+
+.safety-number {
+    display: inline-flex;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 9px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #edf6fb;
+
+    color: #1261a0;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+
+.safety-card h3 {
+    font-size: 17px;
+
+    margin-bottom: 8px;
+}
+
+
+.safety-card p {
+    color: #6c778b;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================
+   INFO CARD
+   ========================= */
+
+.info-card {
+    display: flex;
+
+    gap: 18px;
+
+    align-items: flex-start;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: #eef7ff;
+
+    border: 1px solid #d7eaf7;
+
+    margin-bottom: 35px;
+}
+
+
+.info-icon {
+    font-size: 28px;
+}
+
+
+.info-card h3 {
+    margin-bottom: 5px;
+
+    color: #1261a0;
+}
+
+
+.info-card p {
+    color: #526276;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESULT PAGE
+   ========================= */
+
+.result-hero {
+    text-align: center;
+
+    padding: 35px 20px;
+}
+
+
+.result-hero .badge {
+    background: #e9f8f0;
+
+    color: #197044;
+
+    border-color: #ccebd9;
+}
+
+
+.result-hero h1 span {
+    color: #1261a0;
+}
+
+
+.result-hero p {
+    color: #718096;
+}
+
+
+/* =========================
+   PREDICTION CARD
+   ========================= */
+
+.prediction-card {
+    max-width: 750px;
+
+    margin: auto;
+
+    text-align: center;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 25px;
+
+    border: 1px solid #e5ebf1;
+
+    box-shadow:
+        0 18px 50px rgba(
+            30,
+            55,
+            80,
+            0.10
+        );
+}
+
+
+.prediction-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+
+.result-label {
+    color: #8792a5;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+
+.prediction-card h2 {
+    font-size: 28px;
+
+    color: #1261a0;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   CONFIDENCE
+   ========================= */
+
+.confidence-container {
+    text-align: left;
+}
+
+
+.confidence-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    font-size: 14px;
+}
+
+
+.confidence-header strong {
+    color: #1261a0;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 12px;
+
+    background: #e9eef3;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress {
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1687a9,
+            #1261a0
+        );
+
+    border-radius: 20px;
+
+    transition: width 0.7s ease;
+}
+
+
+/* =========================
+   RESULT ALERT
+   ========================= */
+
+.result-alert {
+    max-width: 900px;
+
+    margin: 30px auto;
+}
+
+
+/* =========================
+   NEXT STEPS
+   ========================= */
+
+.next-steps {
+    margin-top: 45px;
+}
+
+
+.next-steps > h2 {
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   RESULT BUTTON
+   ========================= */
+
+.result-actions {
+    text-align: center;
+
+    margin: 35px 0;
+}
+
+
+.back-button {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    background: #1261a0;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+
+.back-button:hover {
+    background: #0d4e83;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   FINAL DISCLAIMER
+   ========================= */
+
+.final-disclaimer {
+    max-width: 900px;
+
+    margin: 30px auto;
+
+    padding: 22px;
+
+    background: #f8f9fb;
+
+    border: 1px solid #e2e6ec;
+
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+
+.final-disclaimer strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #39465a;
+}
+
+
+.final-disclaimer p {
+    color: #737e90;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px 20px;
+
+    background: #172b3e;
+
+    color: #c6d2de;
+
+    font-size: 13px;
+}
+
+
+footer p:first-child {
+    font-weight: 700;
+
+    margin-bottom: 4px;
+
+    color: white;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+
+    .nav-tag {
+        display: none;
+    }
+
+
+    .main-container {
+        width: 94%;
+
+        padding-top: 25px;
+    }
+
+
+    .hero {
+        padding: 30px 25px;
+    }
+
+
+    .hero-icon {
+        display: none;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .safety-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .card {
+        padding: 25px 20px;
+    }
+
+
+    .card-header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .prediction-card {
+        padding: 30px 20px;
+    }
+
+}

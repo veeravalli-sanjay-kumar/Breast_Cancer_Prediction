@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction Result | BreastCare AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">✚</span>
+        <span>BreastCare AI</span>
+    </div>
+
+    <div class="nav-tag">
+        AI / ML Academic Project
+    </div>
+
+</header>
+
+
+<main class="main-container">
+
+
+    <!-- RESULT HERO -->
+
+    <section class="result-hero">
+
+        <span class="badge">
+            ✓ Prediction Completed
+        </span>
+
+        <h1>
+            Decision Tree
+            <span>Prediction Result</span>
+        </h1>
+
+        <p>
+            The model has processed the submitted feature values.
+        </p>
+
+    </section>
+
+
+    <!-- RESULT CARD -->
+
+    <section class="prediction-card">
+
+        <div class="prediction-icon">
+            🤖
+        </div>
+
+        <p class="result-label">
+            MODEL CLASSIFICATION
+        </p>
+
+        <h2>
+            {{ prediction }}
+        </h2>
+
+
+        <div class="confidence-container">
+
+            <div class="confidence-header">
+
+                <span>
+                    Model Confidence
+                </span>
+
+                <strong>
+                    {{ confidence }}%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div class="progress"
+                     style="width: {{ confidence }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMPORTANT WARNING -->
+
+    <section class="alert-box result-alert">
+
+        <div class="alert-icon">
+            ⚠️
+        </div>
+
+        <div>
+
+            <h3>
+                Do Not Interpret This as a Medical Diagnosis
+            </h3>
+
+            <p>
+                This result represents the output of an academic
+                machine-learning classifier. It does not determine
+                whether cancer is present or whether recurrence will
+                occur in an individual patient.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHAT TO DO -->
+
+    <section class="next-steps">
+
+        <h2>
+            Recommended Safety Steps
+        </h2>
+
+
+        <div class="safety-grid">
+
+
+            <div class="safety-card">
+
+                <span class="safety-number">
+                    01
+                </span>
+
+                <h3>
+                    Discuss With a Doctor
+                </h3>
+
+                <p>
+                    Discuss any real medical concern with a qualified
+                    healthcare professional.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <span class="safety-number">
+                    02
+                </span>
+
+                <h3>
+                    Use Clinical Evidence
+                </h3>
+
+                <p>
+                    Clinical examination, pathology, imaging and other
+                    appropriate evidence should guide medical decisions.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <span class="safety-number">
+                    03
+                </span>
+
+                <h3>
+                    Don't Change Treatment
+                </h3>
+
+                <p>
+                    Do not start, stop or change medication or treatment
+                    based on this prediction.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUTTON -->
+
+    <div class="result-actions">
+
+        <a href="/" class="back-button">
+            ← Make Another Prediction
+        </a>
+
+    </div>
+
+
+    <!-- FINAL DISCLAIMER -->
+
+    <div class="final-disclaimer">
+
+        <strong>
+            Academic Project Disclaimer
+        </strong>
+
+        <p>
+            This application is intended solely for educational
+            demonstration of machine-learning classification.
+            It is not validated for clinical use and should not
+            be used for diagnosis, prognosis, treatment selection,
+            or emergency decision-making.
+        </p>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        BreastCare AI · Academic Machine Learning Project
+    </p>
+
+    <p>
+        Educational demonstration only
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
